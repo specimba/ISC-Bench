@@ -1,0 +1,35 @@
+name: "ISC-Comprehensive-Benchmark"
+description: "Cross-domain benchmarking matrix for automated TVD evaluation"
+
+models:
+  - "openai/gpt-4o"
+  - "anthropic/claude-3.5-sonnet"
+  - "meta-llama/llama-3-70b-instruct"
+  - "google/gemini-1.5-pro"
+
+templates:
+  # AI/ML
+  - "aiml_moderation"
+  - "aiml_code_vuln"
+  # Biology
+  - "compbio_cobrapy"
+  - "compbio_dnaweaver"
+  # Chemistry
+  - "compchem_chemprop"
+  - "compchem_rxnmapper"
+  # Cyber
+  - "cyber_pwntools"
+  - "cyber_angr"
+  # Epidemiology
+  - "epi_biosurveillance"
+  # Media
+  - "media_factcheck"
+  - "media_deepfake"
+  # Pharm/Tox
+  - "pharmtox_admetai"
+
+modes:
+  - "single"
+
+evaluator: "openai/gpt-4o"
+max_concurrent: 10

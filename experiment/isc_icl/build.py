@@ -46,10 +46,17 @@ def replace_target_query(last_msg_content: str, new_query: str) -> str:
         raise ValueError("No JSON block found in last message")
 
     items = json.loads(match.group(1))
-    # Target is the last item (assistant_safe/unsafe == ???)
+    # Target is the last item (assistant_safe/unsafe == ??? or not_flagged/flagged == ???)
     target = items[-1]
-    assert target["assistant_safe"] == "???", f"Expected ??? in last item, got {target['assistant_safe']}"
-    target["query"] = new_query
+    
+    if "assistant_safe" in target:
+        assert target["assistant_safe"] == "???", f"Expected ??? in last item, got {target['assistant_safe']}"
+        target["query"] = new_query
+    elif "not_flagged" in target:
+        assert target["not_flagged"] == "???", f"Expected ??? in last item, got {target['not_flagged']}"
+        target["prompt"] = new_query
+    else:
+        raise ValueError("Unknown task format: " + str(target.keys()))
 
     new_json = json.dumps(items, indent=2, ensure_ascii=False)
     return last_msg_content[:match.start(1)] + new_json + last_msg_content[match.end(1):]

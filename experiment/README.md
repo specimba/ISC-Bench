@@ -26,6 +26,20 @@ Reproduce the ISC evaluation from the paper. Three interaction modes, each progr
 
 ## How to Run
 
+### 1. Unified Dashboard (Recommended)
+
+To quickly view the leaderboard, browse the SQLite request cache, and edit the cross-domain benchmarking matrix configuration, use the Streamlit dashboard:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+
+./run_dashboard.sh
+```
+
+### 2. Manual Modes
+
 Each mode has its own directory with a README:
 
 | Mode | Directory |
