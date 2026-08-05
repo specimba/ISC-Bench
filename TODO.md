@@ -12,6 +12,15 @@ Automated ISC pipeline — generate large-scale harmful content datasets from fr
 
 ---
 
+## Unified Automated Benchmark Suite
+
+- [x] Engine design: Config-driven YAML configuration matrix for dynamic sweeps
+- [x] High-performance SQLite request caching for rapid interrupted restarts
+- [x] End-to-end markdown reporting and Leaderboard tracking
+- [x] Automated test suite and CI integration for Engine reliability
+
+---
+
 ## Template SKILL Conversion Tracker
 
 Converting all templates from `README.md + meta.json` → `SKILL.md` format (YAML frontmatter, NEVER lists, customization guides).
